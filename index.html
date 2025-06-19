@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현난화 포트폴리오</title>
+
+    <link rel="stylesheet" href="index.css">
+
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" /> <!-- 프리텐다드 -->
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/components/prism-javascript.min.js"></script>
+
+</head>
+<body>
+
+    <!-- 로딩 -->
+   <div id="blurOverlay"></div>
+
+    <!-- 커서 -->
+    <div class="cursor-dot"></div>
+
+    <!-- 스크롤 -->
+    <div class="scroll">
+        <p class="pop scrollProgress-nm top-text">PORTPOLIO</p>
+        <div class="scroll-bar-container">
+            <div class="scroll-bar-bg" id="scrollProgress-bg"></div>
+            <div class="scroll-bar-progress" id="scrollProgress"></div>
+        </div>
+        <p class="pop scrollProgress-nm bottom-text">2025</p>
+    </div>
+
+    <!-- intro -->
+    <section class="intro">
+
+        <div class="container">
+            <h1>현난화 (<span class="pop">Hyun Nan Hwa</span>)</h1>
+
+            <div class="typing-container pop" >
+                Hello, I'm 
+                <span id="typing-text"></span><span id="cursor">|</span>
+            </div>
+
+           <ul class="icon">
+                <li>
+                    <a href="mailto:chef2079@NAVER.com">
+                        <img src="icon/mail.png" alt="메일">
+                    </a>
+                </li>
+                <li>
+                    <a href="tel:01057132079">
+                        <img src="icon/call.png" alt="전화">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+                        <img src="icon/git.png" alt="GitHub">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </section> <!-- intro -->
+
+    <!-- profile -->
+    <section class="pro" id="pro">
+        
+        <div class="top">
+            <h1>안녕하세요. <span class="wei">프론트엔드 개발자를 지향하는 <span class="col">퍼블리셔</span> 현난화</span> 입니다.</h1>
+            <p>아래는 제가 몸 담았던 회사에서의 경험과 주요 업무를 정리해두었습니다. 좌우 스와이프를 통해 각 이력을 확인해주세요!</p>
+        </div>
+
+        <div class="bot">
+            <div class="left">
+                <img src="img/증명사진.png"> 
+            </div>
+            <div class="right">
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <!-- Slide 1 -->
+                         <div class="swiper-slide">
+                            <div class="tit">
+                                <p class="com-nm">주식회사 써니</p>
+                                <p>|</p>
+                                <p class="per pop">2024.10 - 2025.01</p>
+                            </div>
+                            <div class="txt">
+                                <p>
+                                    자동차 용품 전문 인하우스 회사에서 웹 퍼블리셔로 근무하며, <br>
+                                    자사 콘텐츠 중심의 웹 구축 및 운영 업무를 담당했습니다.<br><br>
+                                    제품 촬영, 상세페이지 제작 등 <span class="wei">이커머스 전반의 콘텐츠 제작</span>을 경험했으며,<br>
+                                    <span class="wei">카페24와 스마트스토어 기반으로 기업형 페이지와 자사몰을 구축</span>하고,<br>
+                                    쇼핑라이브를 지원하며 라이브 커머스 운영에 대한 경험을 쌓았습니다.<br><br>
+                                    또한 회원 카페 내 이벤트를 위한 간단한 게임형 웹 코드 (제비뽑기, 사다리타기 등)를 <br>
+                                    직접 제작 및 배포하며, 사용자 참여를 유도하는 인터랙티브 요소도 구현했습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                       <div class="swiper-slide">
+                            <div class="tit">
+                                <p class="com-nm">애드펀(디플래닛)</p>
+                                <p>|</p>
+                                <p class="per pop">2024.04 - 2024.10 / 2022.02 - 2023.05</p>
+                            </div>
+                            <div class="txt">
+                                <p>
+                                    웹 에이전시로, 주로 병원 및 선사 관련 업무를 진행했습니다. <br>
+                                    퍼블리셔로 입사 하였으나, 실무에서 역할 구분 없이 다양한 영역을 경험하게 되었고, <br>
+                                    그 과정에서 프론트엔드 개발과 데이터베이스 설계를 접하게 되며<br> 자연스레 관심을 갖게 되었습니다. <br><br>
+                                    주요 업무로는 
+                                    <span class="wei">UI, UX 개선 및 유지보수, API 연동 작업</span>을 비롯하여 <br>
+                                    <span class="wei">환자별 맞춤 예약 페이지, 선사용 관리 페이지 개발</span> 등이 있으며,<br>
+                                    다양한 업체와 협업 속에서 실무 역량을 넓히는 계기가 되었습니다.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="swiper-slide">
+                            <div class="tit">
+                                <p class="com-nm">선영디자인</p>
+                                <p>|</p>
+                                <p class="per pop">2023.09 - 2023.12</p>
+                            </div>
+                            <div class="txt">
+                                <p>
+                                    웹 에이전시로, <span class="wei">카페24 기반의 기업 홈페이지 및 쇼핑몰 구축</span> 업무를 담당했습니다.<br>
+                                    HTML, CSS, JavaScript 를 중심으로 다양한 기능형 UI, UX 를 구현하며, <br>
+                                    웹 페이지 구조에 대한 이해도를 더 높일 수 있었습니다.<br><br>
+                                    짧은 기간이었지만 디자이너와의 협업을 통해 커뮤니케이션의 중요성을 체감했고, <br>
+                                    카페24 플랫폼의 운영 방식과 정책에 대한 이해를 쌓는 계기가 되었습니다.
+                                </p>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+
+    <section class="interview"id="highlightSection" >
+
+        <h1>
+            저에 대해 궁금하실 만한 내용을 담아봤어요 🙋🏻‍♀️ 
+        </h1>
+        <div class="bubbles">
+            <div class="bubble bubble-1">
+            <p class="que"><span class="pop">Q.</span> <span class="col">프론트엔드</span>를 지향하는 이유는?</p>
+            <p class="ans">이전 회사에서 프론트엔드 업무를 처음 접했고, 어렵지만 문제를 해결해 나가는 과정이 즐거웠습니다.<br>
+            퍼블리셔보다 <span class="col">사용자와의 상호작용</span>이 더 많은 작업이 매력적으로 느껴졌고,<br>
+            기초 지식을 쌓으며 React와 같은 프레임워크를 활용해 꾸준히 공부 중입니다.</p>
+            </div>
+
+            <div class="bubble-2">
+                <div class="bubble">
+                    <p class="que"><span class="pop">Q.</span> 일에 있어 가장 중요하게 생각하는 <span class="col">가치</span>는?  </p>
+                    <p class="ans">작은 작업이라도 누군가에게 도움이 되는 <span class="col">보람</span>을 중요하게 생각합니다.<br>
+                    사용자와의 상호작용에서 느껴지는 실질적인 반응도 좋지만,<br>
+                    회사 동료들과의 협업 과정에서 서로에게 기여하며 함께 완성해가는 경험을 큰 보람으로 느낍니다.</p>
+                </div>
+            </div>
+
+        
+            <div class="bubble bubble-3">
+                <p class="que"><span class="pop">Q.</span> 앞으로 <span class="col">어떤 개발자</span>가 되고 싶은지? </p>
+                <p class="ans">변화에 유연하게 대응하고 <span class="col">지속적으로 성장하는 개발자</span>가 되고 싶습니다.<br>
+                온라인 강의, 관련 서적, 사이드 프로젝트 등을 통해 기초와 실무 감각을 함께 키워가며,<br>
+                실무 역량을 갖춘 개발자로 차근차근 나아가고 싶습니다.</p>
+            </div>
+            
+        </div>
+    </section>
+
+
+    <section class="section stack">
+        
+        <div class="top">
+            <h1>이런 기술들을 사용 했어요.</h1>
+            <p>프로젝트를 진행하며 실제로 활용한 기술과 툴들을 정리해두었습니다.</p>
+        </div>
+
+        <div class="bot">
+            <div class="front hidden">
+                <h1><i data-lucide="code-xml"></i></i>프론트엔드</h1>
+
+                <ul>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">HTML</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                            </div>
+                        </div>
+                        <p>웹 페이지의 구조를 마크업하는 데 사용했습니다.</p>
+                    </li>
+                   
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">CSS</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                            </div>
+                        </div>
+                        <p>반응형 웹 및 스타일 커스터마이징에 사용했습니다.</p>
+                    </li>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">Java Script</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p> 동적 기능 구현에 사용했습니다.</p>
+                    </li>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">API</h2>
+                           <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>서버에서 데이터를 받아와 동적으로 화면에 표시했습니다.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="back hidden">
+                <h1><i data-lucide="database"></i>백엔드</h1>
+
+                <ul>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">PHP</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>서버에서 동적으로 웹 페이지를 생성하고 폼 데이터 처리에 사용했습니다.</p>
+                    </li>
+                   
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">Node.js</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>프론트엔드에서 사용한 데이터를 처리하는 서버 개발에 사용했습니다.</p>
+                    </li>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">MsSQL</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>DB 테이블 설계 및  사용자 관리에 사용했습니다.</p>
+                    </li>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">ASP</h2>
+                           <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>서버에서 동적으로 데이터를 처리하고 웹 페이지에 출력했습니다.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="library hidden">
+                <h1><i data-lucide="box"></i>라이브러리</h1>
+
+                <ul>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">Swiper</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active "></span>
+                                <span class="dot active "></span>
+                            </div>
+                        </div>
+                        <p>콘텐츠 슬라이더 구현에 사용했습니다.</p>
+                    </li>
+                   
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">Bootstrap</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active "></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>빠른 레이아웃 구성과 반응형 웹 구현에 사용했습니다.</p>
+                    </li>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">AOS </h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active "></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>스크롤 시 애니메이션 효과에 사용했습니다.</p>
+                    </li>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">Slick Slider</h2>
+                           <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>모바일 터치 슬라이드 구현에 사용했습니다.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="design hidden">
+                <h1><i data-lucide="pen-line"></i></i>디자인</h1>
+
+                <ul>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">Photoshop</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active "></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>웹 이미지 편집 및 배너 제작에 사용했습니다.</p>
+                    </li>
+                   
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">Illustrator</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>아이콘, 로고 등 벡터 이미지 제작에 사용했습니다.</p>
+                    </li>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">Adobe XD </h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>와이어프레임 및 UI 시안 제작에 사용했습니다.</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="tool hidden">
+                <h1><i data-lucide="handshake"></i></i>협업</h1>
+
+                <ul>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">GitHub</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active "></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>커뮤니케이션 및 프로젝트 협업에 사용했습니다.</p>
+                    </li>
+                   
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">Notion</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active opacity"></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>정리 및 업무 내용 작성, 공부에 사용했습니다.</p>
+                    </li>
+                    <li>
+                        <div class="skill">
+                            <h2 class="pop">File Zilla</h2>
+                            <div class="dots">
+                                <span class="dot active"></span>
+                                <span class="dot active"></span>
+                                <span class="dot active "></span>
+                                <span class="dot active "></span>
+                                <span class="dot active opacity"></span>
+                            </div>
+                        </div>
+                        <p>웹 호스팅서버에 파일 전송 및 수정 작업에 사용했습니다.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section project">
+          <div class="top">
+            <h1>프로젝트를 소개합니다.</h1>
+            <p>실제 프로젝트와 연습용 프로젝트도 함께 담았습니다.</p>
+        </div>
+        
+        <div class="mid">
+            <!-- 상가나라 -->
+            <div class="pro-box pro-box1">
+                <div class="con-box sangga">
+                    <img src="img/sangga.jpg">
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <pre>
+<code>
+<span class="token-keyword">const</span> <span class="token-variable">projectinfo</span>  <span class="token-brackets">=</span> {
+
+<span class="token-property">title</span>: <span class="token-string">"상가나라"</span>,
+
+<span class="token-property">description</span>: <span class="token-string">"법정동 검색 후 상세주소를 입력하면, 건축물대장 API를 통해 
+소재지, 사용승인일, 주 용도, 총 층수, 총 주차대수를 자동 불러옵니다.
+
+실제 중개업체의 요구사항을 반영한 최소한의 정보 제공을 목표로,
+‘적용’을 누르면 매물 등록 페이지에 자동 삽입됩니다."</span>,
+
+<span class="token-property">role</span>: <span class="token-string">"공공데이터 API 연동"</span>,
+
+<span class="token-property">tools</span>: [<span class="token-string">"HTML"</span>, <span class="token-string">"CSS"</span>, <span class="token-string">"JavaScript"</span>, <span class="token-string">"jQuery"</span>]
+
+};</code>
+                        </pre>
+                    </div>          
+                </div>
+
+                <p class="cau">현재 API 확인만 가능하며, ‘적용’ 기능은 로그인 한 실제 업체에 한해 활성화됩니다. </p>
+
+                <div class="btn-box">
+                 <a class="pop site" href="https://www.busansangganara.com/api.html" onclick="openPopup(event)">
+                    <i class="i" data-lucide="corner-up-right"></i>Site
+                    </a>
+                      <a class="pop code" data-target="sanggacode"> <i class="i"  data-lucide="code-xml"></i></i>Code</a>
+
+                    <span> <i data-lucide="chevron-right"></i></span>
+                </div>
+            </div>
+            <!-- 연제일신 -->
+            <div class="pro-box pro-box2">
+                <div class="con-box yjlisin">
+                    <img src="img/yjilsin.jpg">
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <pre>
+<code>
+<span class="token-keyword">const</span> <span class="token-variable">projectinfo</span>  <span class="token-brackets">=</span> {
+
+<span class="token-property">title</span>: <span class="token-string">"연제일신병원"</span>,
+
+<span class="token-property">description</span>: <span class="token-string">"맞춤 추천 검진 항목 기능입니다. 사용자가 성별, 나이, 증상을 
+입력하면 그에 맞는 검진 항목을 추천합니다.
+복잡한 선택 없이 필요한 검진만 빠르게 확인할 수 있도록 구성했습니다."</span>,
+
+<span class="token-property">role</span>: <span class="token-string">"Frontend 및 구조 설계"</span>,
+
+<span class="token-property">tools</span>: [<span class="token-string">"HTML"</span>, <span class="token-string">"CSS"</span>, <span class="token-string">"JavaScript"</span>, <span class="token-string">"jQuery"</span>]
+
+};</code>
+                        </pre>
+                    </div>
+                </div>
+
+                <p class="cau">현재 사용 중인 페이지이므로, 예약 완료 버튼에 주의 바랍니다. </p>
+
+                <div class="btn-box">
+                    <a class="pop site" href="http://m.yjilsin.or.kr/reservation/reservation.asp?code=health&apages=T" target="_blank"> <i class="i" data-lucide="corner-up-right"></i>Site</a>
+                      <a class="pop code" data-target="yjilsincode"> <i class="i"  data-lucide="code-xml"></i></i>Code</a>
+
+                    <span> <i data-lucide="chevron-right"></i></span>
+                </div>
+            </div>
+            <!-- 해마 -->
+            <div class="pro-box pro-box3">
+                <div class="con-box haema">
+                    <img src="img/haema.jpg">
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <pre>
+<code>
+<span class="token-keyword">const</span> <span class="token-variable">projectinfo</span>  <span class="token-brackets">=</span> {
+
+<span class="token-property">title</span>: <span class="token-string">"해마 여행사"</span>,
+
+<span class="token-property">description</span>: <span class="token-string">"다수의 선사를 한 곳에서 효율적으로 관리하기 위해, 
+네이버 예약 API를 활용하여 Node.js 기반으로 선사 관리 페이지를 개발했습니다.
+
+이 페이지에서는 네이버 플레이스를 통해 들어온 예약 건을 선사별로 
+통합 확인할 수 있으며, 각 선사에 대해 업체 등록, 상품 등록, 예약 현황, 
+네이버 업체 연동 상태 확인이 가능합니다.
+
+현재는 비활성화 상태지만, 기획부터 기능 설계까지 작업한 프로젝트입니다."</span>,
+
+<span class="token-property">role</span>: <span class="token-string">"네이버 OpenAPI 호출을 통한 예약 관리 시스템"</span>,
+
+<span class="token-property">tools</span>: [<span class="token-string">"HTML"</span>, <span class="token-string">"CSS"</span>, <span class="token-string">"JavaScript"</span>, <span class="token-string">"jQuery"</span>, <span class="token-string">"Node.js"</span>, <span class="token-string">"Java"</span>]
+
+};</code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="btn-box">
+                    <a class="pop site" href="http://crm.haematour.co.kr/manage/naver/biz_naver_list.html" target="_blank"> <i class="i" data-lucide="corner-up-right"></i>Site</a>
+                    <a class="pop code" href="https://github.com/hyunnanhwa/haema_crm/blob/main/js/api_businesses.js" target="_blank"> <i class="i"  data-lucide="code-xml"></i></i>github</a>
+
+                    <span> <i data-lucide="chevron-right"></i></span>
+                </div>
+            </div>
+            <!-- 정두환에너지 -->
+            <div class="pro-box pro-box4">
+                <div class="con-box energy">
+                    <img src="img/energy.png">
+
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <pre>
+<code>
+<span class="token-keyword">const</span> <span class="token-variable">projectinfo</span>  <span class="token-brackets">=</span> {
+
+<span class="token-property">title</span>: <span class="token-string">"정두환 에너지"</span>,
+
+<span class="token-property">description</span>: <span class="token-string">"아버지 지인 분의 의뢰로 제작한
+‘도시가스 배관 시공 전문업체 정두환에너지’ 의 홈페이지입니다.
+사용자 편의를 고려해 한 페이지 내에서 모두 확인 가능한 구조로 구성했습니다.
+‘문의하기’ 작성 시, 입력된 내용은 이메일로 전송되어, 
+업체 측에서 쉽게 문의 내역을 확인할 수 있도록 개발했습니다.
+
+문의 기능, 배포까지 직접 구현한 개인 작업물로, 
+현재 구글 및 네이버 검색에도 노출되고 있어 실사용 중인 웹사이트입니다."</span>,
+
+<span class="token-property">role</span>: <span class="token-string">"Frontend 및 구조 설계"</span>,
+
+<span class="token-property">tools</span>: [<span class="token-string">"HTML"</span>, <span class="token-string">"CSS"</span>, <span class="token-string">"JavaScript"</span>, <span class="token-string">"jQuery"</span>, <span class="token-string">"PHP"</span>]
+
+};</code>
+                        </pre>
+                    </div>
+                </div>
+                 <p class="cau">현재 사용 중인 페이지이므로, 문의하기 버튼에 주의 바랍니다. </p>
+                <div class="btn-box">
+                    <a class="pop site" href="http://xn--h50b65d90vm9bdzcvz5a.kr/" target="_blank"> <i class="i" data-lucide="corner-up-right"></i>Site</a>
+                      <a class="pop code" data-target="energycode"> <i class="i"  data-lucide="code-xml"></i>Code</a>
+                    <span> <i data-lucide="chevron-right"></i></span>
+                </div>
+            </div>
+
+            <div id="modal" class="modal">
+                <div class="modal-inner">
+                    <span class="close"><i data-lucide="x"></i></span>
+                    <div id="modal-body"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bot">
+            <!-- 깃허브배포 -->
+
+            <!-- 다크모드 -->
+            <div class="pro-box">
+             <div class="con-box">
+
+                <div class="darkmode">
+                    <img src="img/darkmode.jpg">
+                </div>
+             </div>
+             <div class="btn-box">
+                    <a class="pop site" href="https://hyunnanhwa.github.io/darkmode/" target="_blank"> <i class="i" data-lucide="corner-up-right"></i>Site</a>
+                      <a class="pop code" href="https://github.com/hyunnanhwa/darkmode/blob/main/index.html" target="_blank"> <i class="i"  data-lucide="code-xml"></i>github</a>
+                    
+                </div>
+            </div>
+
+            <!-- 투두리스트 -->
+            <div class="pro-box">
+                <div class="con-box">
+
+                    <div class="todo">
+                        <img src="img/todo.jpg">
+                    </div>
+                </div>
+                <div class="btn-box">
+                    <a class="pop site" href="https://hyunnanhwa.github.io/todo/" target="_blank"> <i class="i" data-lucide="corner-up-right"></i>Site</a>
+                      <a class="pop code" href="https://github.com/hyunnanhwa/todo/blob/main/index.html" target="_blank"> <i class="i"  data-lucide="code-xml"></i>github</a>
+                    
+                </div>
+            </div>
+
+            <!-- 타이머 -->
+            <div class="pro-box">
+                <div class="con-box">
+
+                    <div class="timer">
+                        <img src="img/timer.jpg">
+                    </div>
+                </div>
+                <div class="btn-box">
+                    <a class="pop site" href="https://hyunnanhwa.github.io/timer/" target="_blank"> <i class="i" data-lucide="corner-up-right"></i>Site</a>
+                        <a class="pop code" href="https://github.com/hyunnanhwa/timer/blob/master/index.html" target="_blank"> <i class="i"  data-lucide="code-xml"></i>github</a>
+                    
+                </div>
+            </div>
+
+            <!-- 상페 -->
+            <div class="pro-box">
+                <div class="con-box detail">
+
+                    <div class="detailpage">
+                        <img src="img/tonic.jpg">
+                    </div>
+                </div>
+                 <div class="btn-box">
+                        <a class="pop site view" > <i class="i" data-lucide="corner-up-right"></i>View</a>
+                            
+                    </div>
+            </div>
+
+            <div id="modal2" class="modal2">
+                <div class="modal2-inner">
+                    <button class="modal2-close"><i data-lucide="x"></i></button>
+                    <div class="modal2-body">
+                    <img src="img/tonic.jpg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="footer">
+        <div class="top">
+            <h1>감사합니다.</h1>
+            <p>익숙함에 머물지 않고, 늘 사용자 중심의 서비스를 고민하겠습니다.</p>
+        </div>
+
+        <div class="bot">    
+            <p>
+                본 페이지는 상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.
+            </p>
+            <p class="pop">
+                © 2025 Copyright All rights reserved | Designed by hwa
+            </p>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,250 @@
+&lt;?header('Content-Type: text/html; charset=UTF-8');?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+    &lt;title&gt;건축물대장조회&lt;/title&gt;
+    &lt;script src=&quot;https://code.jquery.com/jquery-1.10.2.js&quot;&gt;&lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        document.addEventListener('DOMContentLoaded', function () {
+            var locatadd_nm_input = document.getElementById('locatadd_nm_input');
+            var bunInput = document.getElementById('bunInput');
+            var jiInput = document.getElementById('jiInput');
+            var searchButton = document.getElementById('searchButton');
+            var bunjiDiv = document.querySelector('.bunji');
+            var loadBtn = document.querySelector('.load');
+            var contDiv = document.getElementById('cont');
+            var createBitlyDiv = document.getElementById('createBitly');
+
+            bunInput.addEventListener('input', function() {
+                var value = this.value.replace(/[^0-9]/g, '');
+                var paddedValue = value.padStart(4, '0').slice(-4);
+                console.log(&quot;bun:&quot;, paddedValue);
+            });
+
+            jiInput.addEventListener('input', function() {
+                var value = this.value.replace(/[^0-9]/g, '');
+                var paddedValue = value.padStart(4, '0').slice(-4);
+                console.log(&quot;ji:&quot;, paddedValue);
+            });
+
+            
+
+            searchButton.onclick = function() {
+                var locatadd_nm_value = locatadd_nm_input.value.trim();
+
+                if (!locatadd_nm_value) {
+                    alert('시 또는 동을 입력해주세요.');
+                    return;
+                }
+
+                console.log(&quot;locatadd_nm:&quot;, locatadd_nm_value);
+
+                var xhr1 = new XMLHttpRequest();
+                var url1 = 'https://apis.data.go.kr/1741000/StanReginCd/getStanReginCdList';
+                var queryParams1 = '?' + encodeURIComponent('serviceKey') + '=' + 'serviceKey';
+                queryParams1 += '&amp;' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1');
+                queryParams1 += '&amp;' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('1000');
+                queryParams1 += '&amp;' + encodeURIComponent('locatadd_nm') + '=' + encodeURIComponent(locatadd_nm_value);
+                xhr1.open('GET', url1 + queryParams1);
+                xhr1.onreadystatechange = function () {
+                    if (this.readyState == 4 &amp;&amp; this.status == 200) {
+                        var parser = new DOMParser();
+                        var xmlDoc = parser.parseFromString(this.responseText, &quot;text/xml&quot;);
+                        var locatadd_nm = xmlDoc.getElementsByTagName('locatadd_nm');
+                        var region_cd = xmlDoc.getElementsByTagName('region_cd');
+                        var body = document.getElementById('cont');
+
+                        body.innerHTML = '';
+
+                        for (var i = 0; i &lt; locatadd_nm.length; i++) {
+                            var div = document.createElement('div');
+
+                            var span = document.createElement('span');
+                            span.textContent = (i + 1) + '. ' + locatadd_nm[i].childNodes[0].nodeValue;
+                            span.setAttribute('data-region-cd', region_cd[i].childNodes[0].nodeValue);
+                            span.style.cursor = 'pointer'; 
+
+                            span.addEventListener('click', function() {
+                                var regionCd = this.getAttribute('data-region-cd');
+                                var sigunguCd = regionCd.substring(0, 5);
+                                var bjdongCd = regionCd.substring(5);
+                                console.log(&quot;sigunguCd:&quot;, sigunguCd);
+                                console.log(&quot;bjdongCd:&quot;, bjdongCd);
+
+                                bunInput.disabled = false;
+                                jiInput.disabled = false;
+                                bunInput.classList.remove('disabled');
+                                jiInput.classList.remove('disabled');
+
+                                bunjiDiv.style.display = 'block';
+                                loadBtn.style.display = 'block';
+                                contDiv.style.display = 'none';
+
+                                localStorage.setItem('sigunguCd', sigunguCd);
+                                localStorage.setItem('bjdongCd', bjdongCd);
+                            });
+
+                            div.appendChild(span);
+                            body.appendChild(div);
+                            body.appendChild(document.createElement('br'));
+                        }
+
+                        var locataddDiv = document.querySelector('.locatadd_nm');
+                        locataddDiv.style.display = 'none';
+                    }
+                };
+                xhr1.send('');
+            };
+
+            loadBtn.addEventListener('click', function() {
+                var sigunguCd = localStorage.getItem('sigunguCd');
+                var bjdongCd = localStorage.getItem('bjdongCd');
+                var bunValue = bunInput.value.trim();
+                var jiValue = jiInput.value.trim();
+
+                var paddedBun = bunValue.padStart(4, '0').slice(-4);
+                var paddedJi = jiValue.padStart(4, '0').slice(-4);
+
+                console.log(&quot;sigunguCd:&quot;, sigunguCd);
+                console.log(&quot;bjdongCd:&quot;, bjdongCd);
+                console.log(&quot;bun:&quot;, paddedBun);
+                console.log(&quot;ji:&quot;, paddedJi);
+
+                var xhr2 = new XMLHttpRequest();
+                var url2 = 'https://apis.data.go.kr/1613000/BldRgstHubService/getBrTitleInfo';
+                var queryParams2 = '?' + encodeURIComponent('ServiceKey') + '=' + 'serviceKey';
+                
+                if (paddedBun === '0000' &amp;&amp; paddedJi === '0000') {
+                    queryParams2 += '&amp;' + encodeURIComponent('sigunguCd') + '=' + encodeURIComponent(sigunguCd);
+                    queryParams2 += '&amp;' + encodeURIComponent('bjdongCd') + '=' + encodeURIComponent(bjdongCd);
+                } else {
+                    queryParams2 += '&amp;' + encodeURIComponent('sigunguCd') + '=' + encodeURIComponent(sigunguCd);
+                    queryParams2 += '&amp;' + encodeURIComponent('bjdongCd') + '=' + encodeURIComponent(bjdongCd);
+                    queryParams2 += '&amp;' + encodeURIComponent('platGbCd') + '=' + encodeURIComponent('0');
+                    queryParams2 += '&amp;' + encodeURIComponent('bun') + '=' + encodeURIComponent(paddedBun);
+                    queryParams2 += '&amp;' + encodeURIComponent('ji') + '=' + encodeURIComponent(paddedJi);
+                }
+
+                console.log(&quot;Request URL: &quot; + url2 + queryParams2);
+
+                xhr2.open('GET', url2 + queryParams2);
+                xhr2.onreadystatechange = function () {
+                    if (this.readyState == 4) {
+                        if (this.status == 200) {
+                            var parser = new DOMParser();
+                            var xmlDoc = parser.parseFromString(this.responseText, &quot;text/xml&quot;);
+                            var totalCountElement = xmlDoc.getElementsByTagName('totalCount')[0];
+
+                            createBitlyDiv.innerHTML = '';
+
+                            if (totalCountElement &amp;&amp; totalCountElement.textContent === '0') {
+                                createBitlyDiv.innerText = &quot;데이터가 없습니다.&quot;;
+                            } else {
+                                var items = xmlDoc.getElementsByTagName('item');
+                                var results = {};
+
+                                for (var i = 0; i &lt; items.length; i++) {
+                                    var useAprDayElement = items[i].getElementsByTagName('useAprDay')[0];
+                                    var platPlcElement = items[i].getElementsByTagName('platPlc')[0];
+                                    var newPlatPlcElement = items[i].getElementsByTagName('newPlatPlc')[0];
+                                    var mainPurpsCdNmElement = items[i].getElementsByTagName('mainPurpsCdNm')[0];
+
+                                    var grndFlrCntElement = items[i].getElementsByTagName('grndFlrCnt')[0];
+                                    var ugrndFlrCntElement = items[i].getElementsByTagName('ugrndFlrCnt')[0];
+                                    var indrMechUtcntElement = items[i].getElementsByTagName('indrMechUtcnt')[0];
+                                    var oudrMechUtcntElement = items[i].getElementsByTagName('oudrMechUtcnt')[0];
+                                    var indrAutoUtcntElement = items[i].getElementsByTagName('indrAutoUtcnt')[0];
+                                    var oudrAutoUtcntElement = items[i].getElementsByTagName('oudrAutoUtcnt')[0];
+
+                                    if (useAprDayElement &amp;&amp; platPlcElement &amp;&amp; newPlatPlcElement &amp;&amp; mainPurpsCdNmElement &amp;&amp; grndFlrCntElement &amp;&amp; 
+                                    ugrndFlrCntElement &amp;&amp; indrMechUtcntElement &amp;&amp; oudrMechUtcntElement &amp;&amp; indrAutoUtcntElement &amp;&amp; oudrAutoUtcntElement) {
+                                        var useAprDay = useAprDayElement.textContent;
+                                        var platPlc = platPlcElement.textContent;
+                                        var newPlatPlc = newPlatPlcElement.textContent;
+                                        var mainPurpsCdNm = mainPurpsCdNmElement.textContent;
+
+                                        var grndFlrCnt = parseInt(grndFlrCntElement.textContent || 0, 10);
+                                        var ugrndFlrCnt = parseInt(ugrndFlrCntElement.textContent || 0, 10);
+                                        var totalFlrCnt = grndFlrCnt + ugrndFlrCnt;
+
+                                        var indrMechUtcnt = parseInt(indrMechUtcntElement.textContent || 0, 10);
+                                        var oudrMechUtcnt = parseInt(oudrMechUtcntElement.textContent || 0, 10);
+                                        var indrAutoUtcnt = parseInt(indrAutoUtcntElement.textContent || 0, 10);
+                                        var oudrAutoUtcnt = parseInt(oudrAutoUtcntElement.textContent || 0, 10);
+                                        var totalParkingCnt = indrMechUtcnt + oudrMechUtcnt + indrAutoUtcnt + oudrAutoUtcnt;
+
+                                        var key = useAprDay + '|' + platPlc + '|' + newPlatPlc + '|' + mainPurpsCdNm;
+                                        if (!results[key]) {
+                                            results[key] = true;
+                                            createBitlyDiv.innerHTML += '&lt;div&gt;' + '&lt;br&gt; 매물소재지 : ' + platPlc + '&lt;br&gt; 도로명주소 : ' + newPlatPlc + '&lt;br&gt; 
+                                            사용승인일 : ' + useAprDay + '&lt;br&gt; 주 용도 : ' + mainPurpsCdNm + '&lt;br&gt; 총 층수 : ' + totalFlrCnt + 
+                                            '&lt;br&gt; 총 주차대수 : ' + totalParkingCnt + '&lt;br&gt; &lt;button class=&quot;applyBtn&quot; onclick=&quot;openValue(' + useAprDay + ',' +
+                                            totalFlrCnt + ',' + totalParkingCnt + ')&quot;&gt;적용&lt;/button&gt;&lt;/div&gt;&lt;br&gt;';   
+                                        }
+                                    }
+                                }
+                            }
+                        } else {
+                            console.error(&quot;Request failed with status: &quot; + this.status);
+                            createBitlyDiv.innerText = &quot;Request failed with status: &quot; + this.status;
+                        }
+                    }
+                };
+
+                xhr2.send('');
+
+            });      
+
+            createBitlyDiv.addEventListener('click', function(event) {
+                if (event.target.classList.contains('applyBtn')) {
+                    var useAprDay = event.target.getAttribute('data-useAprDay');
+                    var totalFlrCnt = event.target.getAttribute('data-totalFlrCnt');
+                    var totalParkingCnt = event.target.getAttribute('data-totalParkingCnt');
+                    
+                    console.log(&quot;사용승인일:&quot;, useAprDay);
+                    console.log(&quot;총 층수:&quot;, totalFlrCnt);
+                    console.log(&quot;총 주차대수:&quot;, totalParkingCnt);
+                }
+            });
+            
+        });
+        
+        
+        function openValue(useDay, totalFlrCnt, totalParkingCnt) {
+            opener.document.getElementById(&quot;approval_date&quot;).value=useDay;  
+            opener.document.getElementById(&quot;wr_54&quot;).value=totalFlrCnt; 
+            opener.document.getElementById(&quot;park_cnt&quot;).value=totalParkingCnt;
+            alert(&quot;적용 되었습니다.&quot;);
+            window.close();
+        }
+
+        window.onload = function() {
+            var inputElement = document.getElementById('locatadd_nm_input');
+            var selectedDong = window.localStorage.getItem('selectedDong');
+            if (selectedDong) {
+                inputElement.value = selectedDong;
+            }
+        };   
+
+    &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&quot;locatadd_nm&quot;&gt;
+        &lt;input type=&quot;text&quot; id=&quot;locatadd_nm_input&quot;&gt;
+        &lt;button id=&quot;searchButton&quot;&gt;검색&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&quot;bunji&quot; style=&quot;display: none;&quot;&gt;
+        &lt;input type=&quot;text&quot; id=&quot;bunInput&quot; maxlength=&quot;4&quot; class=&quot;disabled&quot;&gt; - &lt;input type=&quot;text&quot; id=&quot;jiInput&quot; maxlength=&quot;4&quot; class=&quot;disabled&quot;&gt; 번지
+    &lt;/div&gt;
+    
+    &lt;div class=&quot;load&quot; style=&quot;display: none;&quot;&gt;
+        &lt;button id=&quot;loadButton&quot;&gt;불러오기&lt;/button&gt;
+    &lt;/div&gt;
+    
+    &lt;div id=&quot;cont&quot;&gt;&lt;/div&gt;
+
+    &lt;div id=&quot;createBitly&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
