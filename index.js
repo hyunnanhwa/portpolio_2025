@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
   const centerY = '50%';
 
   const duration = 5000;
-  const startDelay = 300;
+  const startDelay = 50;
   const maxRadius = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2);
 
   let startTime = null;
