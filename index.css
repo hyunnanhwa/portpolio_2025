@@ -620,14 +620,14 @@ section.project .bot {
   justify-content: space-between;
 }
 section.project .bot .pro-box {
-  width: 22%;
+  width: 18%;
   
     overflow: hidden;
     border-radius: 20px;
     background: #fff;
     box-sizing: border-box;
 }
-section.project .bot .pro-box .con-box {max-height: 200px;
+section.project .bot .pro-box .con-box {max-height: 180px;
     overflow: hidden;
     position: relative;}
 section.project .bot .pro-box .btn-box {
@@ -643,7 +643,7 @@ section.project .bot .pro-box .btn-box a {
     font-weight: 400;
     margin-right: 0;
     padding: 10px;
-    width: 100px;
+    width: 75px;
 }
 section.project .bot .pro-box .btn-box .i {
   width: 13px;
